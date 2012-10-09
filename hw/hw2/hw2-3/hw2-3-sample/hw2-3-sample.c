@@ -1,4 +1,4 @@
-/**  @File: hw2-3-windows-sample
+/**  @File: hw2-3-sample
   * 
   *  Description: This is a sample code for demoing how to use timer 
   *  		  related functions 
