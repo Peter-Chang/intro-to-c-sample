@@ -67,14 +67,14 @@ void get_time_asctime()
 void get_time_and_save_value()
 {
 	// Initiate the variable which is about time_infomation.
-	time_t timer=time(NULL);
+	time_t timer;
 	// Variables to save info about hour, min, and sec.
 	int hour, min, sec;
 	// Get the information about current time
 	// You can ignore how to use structure variable.
 	// If you want to use this way to get time. 
 	// For now, you just need to follow the pattern of this sample function.
-	struct tm *time_ptr = localtime(&timer);
+	struct tm *time_ptr;
 	
 	/*
 	 * Put info about current time into "hour, min, and sec variables"
@@ -82,6 +82,8 @@ void get_time_and_save_value()
 	 * If you want to use this way to get time, you just need to follow 
 	 * the pattern of this sample function.
 	 */
+	timer = time(NULL);
+	time_ptr = localtime(&timer);
 	hour = time_ptr->tm_hour;
 	min = time_ptr->tm_min; 
 	sec = time_ptr->tm_sec;
