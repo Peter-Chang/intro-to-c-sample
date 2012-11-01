@@ -1,0 +1,134 @@
+
+sprintf：     檔案格式 mach-o-x86-64
+
+
+Disassembly of section .text:
+
+0000000100000e60 <start>:
+   100000e60:	6a 00                	pushq  $0x0
+   100000e62:	48 89 e5             	mov    %rsp,%rbp
+   100000e65:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+   100000e69:	48 8b 7d 08          	mov    0x8(%rbp),%rdi
+   100000e6d:	48 8d 75 10          	lea    0x10(%rbp),%rsi
+   100000e71:	89 fa                	mov    %edi,%edx
+   100000e73:	83 c2 01             	add    $0x1,%edx
+   100000e76:	c1 e2 03             	shl    $0x3,%edx
+   100000e79:	48 01 f2             	add    %rsi,%rdx
+   100000e7c:	48 89 d1             	mov    %rdx,%rcx
+   100000e7f:	eb 04                	jmp    100000e85 <start+0x25>
+   100000e81:	48 83 c1 08          	add    $0x8,%rcx
+   100000e85:	48 83 39 00          	cmpq   $0x0,(%rcx)
+   100000e89:	75 f6                	jne    100000e81 <start+0x21>
+   100000e8b:	48 83 c1 08          	add    $0x8,%rcx
+   100000e8f:	e8 0c 00 00 00       	callq  100000ea0 <_main>
+   100000e94:	89 c7                	mov    %eax,%edi
+   100000e96:	e8 73 00 00 00       	callq  100000f0e <_exit$stub>
+   100000e9b:	f4                   	hlt    
+   100000e9c:	90                   	nop
+   100000e9d:	90                   	nop
+   100000e9e:	90                   	nop
+   100000e9f:	90                   	nop
+
+0000000100000ea0 <_main>:
+   100000ea0:	55                   	push   %rbp
+   100000ea1:	48 89 e5             	mov    %rsp,%rbp
+   100000ea4:	41 57                	push   %r15
+   100000ea6:	41 56                	push   %r14
+   100000ea8:	53                   	push   %rbx
+   100000ea9:	48 83 ec 48          	sub    $0x48,%rsp
+   100000ead:	48 8b 1d 84 01 00 00 	mov    0x184(%rip),%rbx        # 100001038 <___stack_chk_guard$stub>
+   100000eb4:	48 8b 03             	mov    (%rbx),%rax
+   100000eb7:	48 89 45 e0          	mov    %rax,-0x20(%rbp)
+   100000ebb:	4c 8d 35 8a 00 00 00 	lea    0x8a(%rip),%r14        # 100000f4c <_printf$stub+0x38>
+   100000ec2:	4c 8d 7d ac          	lea    -0x54(%rbp),%r15
+   100000ec6:	4c 89 f7             	mov    %r14,%rdi
+   100000ec9:	4c 89 fe             	mov    %r15,%rsi
+   100000ecc:	30 c0                	xor    %al,%al
+   100000ece:	e8 41 00 00 00       	callq  100000f14 <_printf$stub>
+   100000ed3:	66 c7 45 b0 6f 00    	movw   $0x6f,-0x50(%rbp)
+   100000ed9:	c7 45 ac 68 65 6c 6c 	movl   $0x6c6c6568,-0x54(%rbp)
+   100000ee0:	4c 89 f7             	mov    %r14,%rdi
+   100000ee3:	4c 89 fe             	mov    %r15,%rsi
+   100000ee6:	30 c0                	xor    %al,%al
+   100000ee8:	e8 27 00 00 00       	callq  100000f14 <_printf$stub>
+   100000eed:	48 8b 03             	mov    (%rbx),%rax
+   100000ef0:	48 3b 45 e0          	cmp    -0x20(%rbp),%rax
+   100000ef4:	75 0d                	jne    100000f03 <_main+0x63>
+   100000ef6:	31 c0                	xor    %eax,%eax
+   100000ef8:	48 83 c4 48          	add    $0x48,%rsp
+   100000efc:	5b                   	pop    %rbx
+   100000efd:	41 5e                	pop    %r14
+   100000eff:	41 5f                	pop    %r15
+   100000f01:	5d                   	pop    %rbp
+   100000f02:	c3                   	retq   
+   100000f03:	e8 00 00 00 00       	callq  100000f08 <___stack_chk_fail$stub>
+
+Disassembly of section __TEXT.__stubs:
+
+0000000100000f08 <___stack_chk_fail$stub>:
+   100000f08:	ff 25 32 01 00 00    	jmpq   *0x132(%rip)        # 100001040 <___stack_chk_fail$stub>
+
+0000000100000f0e <_exit$stub>:
+   100000f0e:	ff 25 34 01 00 00    	jmpq   *0x134(%rip)        # 100001048 <_exit$stub>
+
+0000000100000f14 <_printf$stub>:
+   100000f14:	ff 25 36 01 00 00    	jmpq   *0x136(%rip)        # 100001050 <_printf$stub>
+
+Disassembly of section __TEXT.__stub_helper:
+
+0000000100000f1c <__TEXT.__stub_helper>:
+   100000f1c:	68 00 00 00 00       	pushq  $0x0
+   100000f21:	e9 16 00 00 00       	jmpq   100000f3c <_printf$stub+0x28>
+   100000f26:	68 18 00 00 00       	pushq  $0x18
+   100000f2b:	e9 0c 00 00 00       	jmpq   100000f3c <_printf$stub+0x28>
+   100000f30:	68 24 00 00 00       	pushq  $0x24
+   100000f35:	e9 02 00 00 00       	jmpq   100000f3c <_printf$stub+0x28>
+   100000f3a:	00 00                	add    %al,(%rax)
+   100000f3c:	4c 8d 1d ed 00 00 00 	lea    0xed(%rip),%r11        # 100001030 <>
+   100000f43:	41 53                	push   %r11
+   100000f45:	ff 25 dd 00 00 00    	jmpq   *0xdd(%rip)        # 100001028 <dyld_stub_binder$stub>
+   100000f4b:	90                   	nop
+
+Disassembly of section __TEXT.__unwind_info:
+
+0000000100000f5d <__TEXT.__unwind_info>:
+   100000f5d:	01 00                	add    %eax,(%rax)
+   100000f5f:	00 00                	add    %al,(%rax)
+   100000f61:	1c 00                	sbb    $0x0,%al
+   100000f63:	00 00                	add    %al,(%rax)
+   100000f65:	00 00                	add    %al,(%rax)
+   100000f67:	00 00                	add    %al,(%rax)
+   100000f69:	1c 00                	sbb    $0x0,%al
+   100000f6b:	00 00                	add    %al,(%rax)
+   100000f6d:	00 00                	add    %al,(%rax)
+   100000f6f:	00 00                	add    %al,(%rax)
+   100000f71:	1c 00                	sbb    $0x0,%al
+   100000f73:	00 00                	add    %al,(%rax)
+   100000f75:	02 00                	add    (%rax),%al
+   100000f77:	00 00                	add    %al,(%rax)
+   100000f79:	60                   	(bad)  
+   100000f7a:	0e                   	(bad)  
+   100000f7b:	00 00                	add    %al,(%rax)
+   100000f7d:	34 00                	xor    $0x0,%al
+   100000f7f:	00 00                	add    %al,(%rax)
+   100000f81:	34 00                	xor    $0x0,%al
+   100000f83:	00 00                	add    %al,(%rax)
+   100000f85:	09 0f                	or     %ecx,(%rdi)
+   100000f87:	00 00                	add    %al,(%rax)
+   100000f89:	00 00                	add    %al,(%rax)
+   100000f8b:	00 00                	add    %al,(%rax)
+   100000f8d:	34 00                	xor    $0x0,%al
+   100000f8f:	00 00                	add    %al,(%rax)
+   100000f91:	03 00                	add    (%rax),%eax
+   100000f93:	00 00                	add    %al,(%rax)
+   100000f95:	0c 00                	or     $0x0,%al
+   100000f97:	02 00                	add    (%rax),%al
+   100000f99:	14 00                	adc    $0x0,%al
+   100000f9b:	02 00                	add    (%rax),%al
+   100000f9d:	00 00                	add    %al,(%rax)
+   100000f9f:	00 01                	add    %al,(%rcx)
+   100000fa1:	40 00 00             	add    %al,(%rax)
+   100000fa4:	00 61 01             	add    %ah,0x1(%rcx)
+   100000fa7:	03 01                	add    (%rcx),%eax
+   100000fa9:	00 00                	add    %al,(%rax)
+	...
