@@ -1,4 +1,4 @@
-/**  @File: hw2-2-unix-sample
+/**  @File: color_output_windows.c 
   * 
   *  Description: Coloring for MS Windows. Let the characters in CLI in MS Windows can be colorful.
   *
